@@ -72,6 +72,14 @@ function Manager() {
         setpasswordArray(passwordArray.filter((curr) => curr.id !== id));
 
     }
+    const getHostname = (url) => {
+        try {
+            const { hostname } = new URL(url);
+            return hostname.replace('www.', ''); // Remove 'www.' if present
+        } catch (error) {
+            return url; // Fallback to the original URL if parsing fails
+        }
+    };
 
 
 
@@ -126,7 +134,7 @@ function Manager() {
                                 passwordArray.map((curr) => {
                                     return (
                                         <tr>
-                                            <td className=' md:min-w-32 text-center py-2 border-1 border-white'><a target='blank' href={curr.site}>{curr.site.length > 20 ? curr.site.substring(0 , 15) + "..." : curr.site}</a> <div onClick={() => copyToClipboard(curr.site)} className=' inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
+                                            <td className=' md:min-w-32 text-center py-2 border-1 border-white'><a target='blank' href={curr.site}>{getHostname(curr.site)}</a> <div onClick={() => copyToClipboard(curr.site)} className=' inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
                                             <td className='md:min-w-32 text-center py-2 border border-white'>{curr.username} <div onClick={() => copyToClipboard(curr.username)} className='inline-block px-2 hover:inverted-colors:to-black cursor-pointer' 
                                                 ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
                                             <td className='md:min-w-32 text-center py-2 border border-white'>{curr.password} <div onClick={() => copyToClipboard(curr.password)} className='inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
