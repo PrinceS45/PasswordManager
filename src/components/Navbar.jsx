@@ -1,6 +1,12 @@
 import React from 'react'
 
 function Navbar() {
+   
+  const openGitHubRepo = () => {
+    window.open('https://github.com/PrinceS45/PasswordManager'); 
+  };
+
+
   return (
     <nav className='bg-slate-900 text-white w-full '>
       <div className="mycontainer flex justify-between items-center h-13 py-5">
@@ -17,7 +23,7 @@ function Navbar() {
             <a className='hover:scale-110' href="#">Contact</a>
           </li>
         </ul> */}
-        <button className=' flex gap-2 border-1 border-green-900 rounded-2xl justify-between items-center hover:bg-slate-950 transition-all duration-400'>
+        <button onClick={openGitHubRepo} className=' flex gap-2 border-1 border-green-900 rounded-2xl justify-between items-center hover:bg-slate-950 transition-all duration-400'>
           <img className='invert' width={38}   src="./icon/github.png" alt="" />
           <div className='py-1 px-1.5 font-bold text-shadow-blue-300 hover:text-lime-200'>GitHub</div>
         </button>
