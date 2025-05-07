@@ -85,7 +85,7 @@ function Manager() {
 
             <div className="absolute inset-0 -z-10 h-full w-full bg-green-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"><div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-green-400 opacity-20 blur-[100px]"></div></div>
 
-            <div className="container  mycontainer min-h-150 w-full">
+            <div className="container  mycontainer md:min-h-153 min-h-197 w-full">
                 <h1 className='text-4xl font-bold text-center '>
                     <span className='text-green-500'>&lt;</span>
                     Pass
@@ -122,15 +122,15 @@ function Manager() {
                                     <th className='py-2'>Action</th>
                                 </tr>
                             </thead>
-                            <tbody className='bg-green-100'>{
+                            <tbody className='bg-green-100' width = "100%">{
                                 passwordArray.map((curr) => {
                                     return (
                                         <tr>
-                                            <td className=' min-w-32 text-center py-2 border-1 border-white'><a target='blank' href={curr.site}>{curr.site}</a> <div onClick={() => copyToClipboard(curr.site)} className=' inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
-                                            <td className='min-w-32 text-center py-2 border border-white'>{curr.username} <div onClick={() => copyToClipboard(curr.username)} className='inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
-                                            <td className='min-w-32 text-center py-2 border border-white'>{curr.password} <div onClick={() => copyToClipboard(curr.password)} className='inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
+                                            <td className=' md:min-w-32 text-center py-2 border-1 border-white'><a target='blank' href={curr.site}>{curr.site.length > 20 ? curr.site.substring(0 , 15) + "..." : curr.site}</a> <div onClick={() => copyToClipboard(curr.site)} className=' inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
+                                            <td className='md:min-w-32 text-center py-2 border border-white'>{curr.username} <div onClick={() => copyToClipboard(curr.username)} className='inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
+                                            <td className='md:min-w-32 text-center py-2 border border-white'>{curr.password} <div onClick={() => copyToClipboard(curr.password)} className='inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
 
-                                            <td className='flex justify-center gap-5 min-w-32 text-center py-2 border border-white'>
+                                            <td className='flex justify-center gap-5 md:min-w-32 text-center py-2 border border-white'>
                                                 <img onClick={() => editItem(curr.id)} className='w-5 hover:scale-110  transition-all delay-80' src="/icon/pencil.png" alt="" />
                                                 <img onClick={() => deleteItem(curr.id)} className='w-5 hover:scale-110 transition-all delay-80' src="/icon/bin.png" alt="" />
                                             </td>
