@@ -93,7 +93,7 @@ function Manager() {
 
             <div className="absolute inset-0 -z-10 h-full w-full bg-green-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"><div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-green-400 opacity-20 blur-[100px]"></div></div>
 
-            <div className="container  mycontainer md:min-h-153 min-h-197 w-full">
+            <div className="container  mycontainer lg:min-h-210 md:min-h-153 min-h-197 w-full">
                 <h1 className='text-4xl font-bold text-center '>
                     <span className='text-green-500'>&lt;</span>
                     Pass
@@ -134,7 +134,7 @@ function Manager() {
                                 passwordArray.map((curr) => {
                                     return (
                                         <tr>
-                                            <td className=' md:min-w-32 text-center py-2 border-1 border-white'><a target='blank' href={curr.site}>{getHostname(curr.site)}</a> <div onClick={() => copyToClipboard(curr.site)} className=' inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
+                                            <td className=' md:min-w-32 text-center py-2 border-1 border-white'><a target='blank' href={curr.site}>{getHostname(curr.site).substring(0,16) + "..."}</a> <div onClick={() => copyToClipboard(curr.site)} className=' inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
                                             <td className='md:min-w-32 text-center py-2 border border-white'>{curr.username} <div onClick={() => copyToClipboard(curr.username)} className='inline-block px-2 hover:inverted-colors:to-black cursor-pointer' 
                                                 ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
                                             <td className='md:min-w-32 text-center py-2 border border-white'>{curr.password} <div onClick={() => copyToClipboard(curr.password)} className='inline-block px-2 hover:inverted-colors:to-black cursor-pointer' ><img className='w-4 h-4 hover:scale-110 transition-all delay-80' width={0.5} src="/icon/copy.png" alt="" /></div></td>
